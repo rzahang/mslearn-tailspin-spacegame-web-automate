@@ -1,0 +1,31 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "deployPrefix": {
+            "value": "-dev-"
+        },
+        "keyVaultName": {
+          "value": "expedo-temp-kv"
+        },
+        "uniqueSuffix": {
+            "value": ""
+        },
+        "adminPassword": {
+            "reference": {
+              "keyVault": {
+                "id": "/subscriptions/e5d64214-883a-4759-addc-307f55a94e50/resourceGroups/ExpedoDevops-Temp/providers/Microsoft.KeyVault/vaults/expedo-temp-kv"
+              },
+              "secretName": "adminPassword"
+            }
+        },
+        "firstRun": {
+            "reference": {
+                "keyVault": {
+                    "id": "/subscriptions/e5d64214-883a-4759-addc-307f55a94e50/resourceGroups/ExpedoDevops-Temp/providers/Microsoft.KeyVault/vaults/expedo-temp-kv"
+                },
+                "secretName": "firstRun"
+            }
+        }
+    }
+}
